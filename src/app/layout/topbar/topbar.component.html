@@ -1,0 +1,22 @@
+<div class="d-flex w-100 justify-content-between align-items-center topbar__container">
+
+    <div class="user__name text-primary font-size-18 fw-bolder">
+        Acore admin dashboard
+    </div>
+
+
+    <div class="dropdown position-static user__profile">
+        <button class="btn border-0 font-size-16" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            {{userObj.name}}
+        </button>
+        <ul class="dropdown-menu text-align-start" aria-labelledby="dropdownMenuButton2">
+            <li>
+                <a class="dropdown-item cursor-default">{{userObj.email}}</a>
+            </li>
+            <li>
+                <a class="dropdown-item cursor-pointer" (click)="logout()">Logout</a>
+            </li>
+        </ul>
+    </div>
+</div>

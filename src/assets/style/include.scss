@@ -1,0 +1,17 @@
+@import './theme/theme';
+@import './theme/mixins';
+// @import './base.scss';
+
+
+@import
+'./components/login',
+'./components/sidemenu',
+'./components/topbar',
+'./components/table',
+'./components/forms',
+'./components/buttons',
+'./components/modal',
+'./components/spinner';
+
+// theme and utility classes
+@import './theme/text', './theme/spacing', './theme/utilities';

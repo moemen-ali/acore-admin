@@ -1,0 +1,92 @@
+<h2 class="page-title">Books</h2>
+
+<div class="d-flex justify-content-between mb-3">
+  <div class="custom-search col-3">
+    <input type="text" placeholder="Search" class="form-control" [(ngModel)]="searchText" #search (ngModelChange)="searchBooks(searchText)">
+    <div class="delete-btn" *ngIf="searchText">
+      <button class="btn text-dark px-0 py-2 border-0" (click)="getBooksList()">Delete</button>
+    </div>
+    <i class="bi bi-search"></i>
+  </div>
+
+  <div>
+    <button type="button" class="btn btn-primary" (click)="newBook()">
+      <i class="bi bi-plus"></i>
+      Add Book
+    </button>
+  </div>
+</div>
+<ng-container *ngIf="dataSource.data.length">
+  <div  class="bg-white rounded-12">
+    <table mat-table [dataSource]="dataSource" matSort>
+      <!-- title Column -->
+      <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef> {{'BOOKS.ADD.BOOK_TITLE' | translate}} </th>
+        <td mat-cell *matCellDef="let element" class=" text-truncate cursor-pointer"> <span>{{element.title}}</span> </td>
+      </ng-container>
+    
+      <!-- categoryName Column -->
+      <ng-container matColumnDef="categoryName">
+        <th mat-header-cell *matHeaderCellDef>  {{'BOOKS.ADD.CATEGORY' | translate}}  </th>
+        <td mat-cell *matCellDef="let element">
+          <span>
+            <p class="text-truncate mb-0 mw-275">
+              {{element.categoryName}}
+            </p>
+    
+          </span>
+        </td>
+      </ng-container>
+    
+      <!-- Desc Column -->
+      <ng-container matColumnDef="author">
+        <th mat-header-cell *matHeaderCellDef> {{'BOOKS.ADD.AUTHOR' | translate}} </th>
+        <td mat-cell *matCellDef="let element"> <span>{{element.author}}</span> </td>
+      </ng-container>
+    
+    
+      <!-- Desc Column -->
+      <ng-container matColumnDef="isbn">
+        <th mat-header-cell *matHeaderCellDef> {{'BOOKS.ADD.ISBN' | translate}} </th>
+        <td mat-cell *matCellDef="let element">
+          {{element.isbn}}
+        </td>
+      </ng-container>
+    
+      <!-- Desc Column -->
+      <ng-container matColumnDef="version">
+        <th mat-header-cell *matHeaderCellDef>  {{'BOOKS.ADD.VERSION' | translate}}  </th>
+        <td mat-cell *matCellDef="let element"> <span>{{element.version}}</span> </td>
+      </ng-container>
+    
+      <!-- Actions Column -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> Actions</th>
+        <td mat-cell *matCellDef="let element" class=" px-0">
+          <span>
+            <button class="btn btn-icon" (click)="viewBook(element.id)"><i class="bi bi-eye-fill text-primary"></i></button>
+            <button class="btn btn-icon" (click)="editBook(element.id)"><i class="bi bi-pencil-fill text-success"></i></button>
+            <button class="btn btn-icon" (click)="deleteBook(element.id)"><i class="bi bi-trash3-fill text-danger"></i></button>
+          </span>
+        </td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let emprow; columns: displayedColumns"></tr>
+    </table>
+  </div>
+
+</ng-container>
+
+<ng-container *ngIf="!dataSource.data.length">
+  No Data
+</ng-container>
+
+<mat-paginator #paginator showFirstLastButtons class="d-none"></mat-paginator>
+<ng-container *ngIf="paginator.pageSize">
+  <div class="custom-paginator mt-4">
+    <button class="btn border-0" mat-button (click)="goToPage(paginator.pageIndex)" [disabled]="paginator.pageIndex === 0"><i class="bi bi-chevron-left"></i></button>
+    <div class="page-numbers" *ngFor="let page of getPaginatorRange()" (click)="goToPage(page)" [class.active]="paginator.pageIndex + 1 === page">{{ page }}</div>
+    <button class="btn border-0" mat-button (click)="goToPage(paginator.pageIndex + 2)" [disabled]="paginator.pageIndex + 1 === getPaginatorRange().length"><i class="bi bi-chevron-right"></i></button>
+  </div>
+</ng-container>

@@ -1,0 +1,46 @@
+<mat-drawer-container class="example-container" [hasBackdrop]="false">
+    <mat-drawer #drawer mode="side" [opened]="sideMenuOpen" class="bg-white">
+        <div class="d-flex flex-column align-items-center">
+            <img src="./assets/images/logo/logo.png" routerLink="./welcome" class="mb-4 cursor-pointer fit-cover">
+
+            <ng-container *ngFor="let item of sideMenuList">
+                <a [routerLink]="item.routeUrl" class="list-item w-100" [routerLinkActive]="['active']"
+                    [ngClass]="{'disabled': item.disabled}">
+                    <div
+                        class="d-flex align-items-center justify-content-start mb-3 p-3 rounded-16 side-menu__item">
+                        <i [ngClass]="item.icon" class="ms-2 me-4"></i>
+
+                        <p class="mb-0">{{item.title}}</p>
+                    </div>
+                </a>
+            </ng-container>
+        </div>
+    </mat-drawer>
+    <mat-drawer-content>
+
+
+
+        <div class="mh-100 h-100vh  w-100">
+
+
+            <!-- <app-sidemenu></app-sidemenu> -->
+            <div class="w-100 system-grid h-100 d-flex flex-column">
+                <app-topbar class="bg-white position-absolute"></app-topbar>
+                <div class=" page-wrapper h-100">
+                    <div class="rounded-top-16 p-4 h-100">
+                        <router-outlet></router-outlet>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </mat-drawer-content>
+</mat-drawer-container>
+
+<button mat-raised-button (click)="toggle(drawer)" class="btn drawer-toggler border-0 position-fixed bg-white"
+    [ngClass]="{'left-0': !sideMenuOpen}">
+    <i class="bi font-size-18" [ngClass]="sideMenuOpen ? 'bi-chevron-left' : 'bi-chevron-right'"></i>
+</button>

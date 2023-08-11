@@ -1,0 +1,62 @@
+app-sidemenu {
+    height: 100%;
+}
+
+mat-drawer-container {
+    mat-drawer {
+        width: 230px;
+
+        img {
+            max-width: 135px;
+            object-fit: cover;
+        }
+    }
+
+    app-topbar {
+        left: 40px;
+        width: calc(100% - 40px);
+    }
+
+    mat-drawer-content {
+        overflow-x: visible !important;
+    }
+
+    &:has(.mat-drawer-opened) {
+        app-topbar {
+            left: 0;
+            width: 100%;
+        }
+    }
+
+    a.list-item {
+        text-decoration: none;
+        color: $system-gray;
+        font-size: 18px;
+
+        &.active {
+            .side-menu__item {
+                background-color: #EFF1FD;
+                color: $system-gray;
+                font-weight: 700;
+                border-right: solid 4px #BB67A2;
+            }
+        }
+    }
+
+
+}
+
+button.drawer-toggler {
+    z-index: 2;
+    left: 187px;
+    top: 0;
+    transition: left 0.1s;
+    padding: 15px 12px;
+    border-radius: 0;
+    &.left-0 {
+        left: 0;
+    }
+}
+
+
+mat-drawer-container {}

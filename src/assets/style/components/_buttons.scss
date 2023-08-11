@@ -1,0 +1,23 @@
+
+.btn {
+    border-radius: 12px;
+    font-weight: 600;
+    padding: 0.6rem 1.4rem;
+}
+
+.btn-primary {
+    @include button-bg($primary-color);
+ }
+ 
+.btn-secondary {
+    @include button-bg($secondary-color);
+ }
+ 
+.btn-light {
+    @include button-bg($default-gray);
+ }
+ 
+
+.btn-outline-secondary {
+    @include button-outline($secondary-color)
+}

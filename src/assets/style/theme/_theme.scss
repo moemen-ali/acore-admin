@@ -1,0 +1,33 @@
+$body-light-blue: #f5f8ff!default;
+$light-blue: #EFF1FD !default;
+$system-primary: #29458E !default;
+$system-gray: #434252 !default;
+$md-gray: #5B5D60 !default;
+$txt-gray: #999 !default;
+$light-gray: #f6f6f6 !default;
+$default-gray: #efefef !default;
+$primary-color: #0d4dcb !default;
+$secondary-color: #bd79ac !default;
+
+body {
+    background-color: $body-light-blue; 
+    color: $md-gray;
+}
+
+.bg-light-blue {
+    background-color: $light-blue;
+}
+
+.bg-light {
+    background-color: $light-gray;
+}
+
+.text-primary {
+    color: $primary-color;
+}
+
+.page-title {
+    font-size: 30px;
+    font-weight: 700;
+    color: $md-gray;
+}

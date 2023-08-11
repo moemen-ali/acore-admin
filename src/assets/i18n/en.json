@@ -1,0 +1,47 @@
+{
+    "AUTH": {
+        "LOGIN": {
+            "TITLE": "Please enter yor email and password to access your account.",
+            "EMAIL": "Email",
+            "PASSWORD": "Password",
+            "FORGET_PASSWORD": "Forget Password",
+            "SIGN_IN": "Sign In",
+            "SHOW": "Show",
+            "HIDE": "Hide"
+        },
+        "VALIDATION": {
+            "INVALID": "{{name}} is not valid",
+            "REQUIRED": "{{name}} is required"
+        }
+    },
+    "LAYOUT": {
+        "SIDEMENU": {
+            "BOOKS": "Books"
+        }
+    },
+    "BUTTONS": {
+        "SAVE":"Save",
+        "CANCEL": "Cancel",
+        "DELETE": "Delete",
+        "EDIT": "Edit"
+    },
+    "BOOKS": {
+        "ADD": {
+            "TITLE": "Add Book",
+            "BOOK_TITLE": "Book Title",
+            "AUTHOR": "Book Author",
+            "CATEGORIES": "Categories",
+            "CATEGORY": "Category",
+            "PRICE": "Book Price",
+            "COVER": "Book Cover",
+            "VERSION": "Book Version",
+            "OLDER_VERSION": "Book Older Version",
+            "EDITION": "Book Edition",
+            "ISBN": "Book ISBN",
+            "RELEASE_DATE": "Book Release Date",
+            "BRIEF": "Book Brief",
+            "UPLOAD_BOOK_COVER": "Upload Book Cover",
+            "BOOK_COVER_NOTE": "Best dimensions for book cover image are 128*200"
+        }
+    }
+}

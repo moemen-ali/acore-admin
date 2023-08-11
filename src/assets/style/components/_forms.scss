@@ -1,0 +1,44 @@
+.custom-search {
+    position: relative;
+
+    input {
+        padding-right: 95px;
+    }
+
+    i {
+        position: absolute;
+        top: 6px;
+        right: 18px;
+    }
+
+    .delete-btn {
+        position: absolute;
+        top: 0;
+        right: 40px;
+    }
+}
+.ng-select {
+    .ng-select-container {
+        background-color: $light-blue;
+        border-color: #dee2e6;
+        .ng-value-container {
+            .ng-placeholder {
+                color: #55585f;
+            }
+        }
+    }
+    &.border-danger {
+        .ng-select-container {
+            border-color: #dc3545;
+        }
+    }
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}

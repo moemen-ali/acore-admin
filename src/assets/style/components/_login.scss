@@ -1,0 +1,27 @@
+.login {
+    &__container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @media screen and (min-width: 768px) {
+            padding: 128px;
+        }
+        padding: 16px;
+        &--card {
+            border-radius: 18px;
+            overflow: hidden;
+            img.logo {
+                width: 100px;
+                object-fit: cover;
+            }
+            .switch-password {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                font-size: 14px;
+                right: 6px;
+                border: 0;
+            }
+        }
+    }
+}

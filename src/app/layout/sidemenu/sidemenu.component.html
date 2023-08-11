@@ -1,0 +1,20 @@
+<mat-sidenav-container class="example-container h-100 position-fixed bg-white side-menu">
+    <mat-sidenav mode="side" [opened]="isOpened">
+        <div class="d-flex flex-column align-items-center">
+            <img src="./assets/images/logo/logo.png" routerLink="./welcome" class="mb-4 cursor-pointer mw-135px fit-cover">
+    
+            <ng-container *ngFor="let item of sideMenuList">
+                <a [routerLink]="item.routeUrl" class="list-item w-100" [routerLinkActive]="['active']" [ngClass]="{'disabled': item.disabled}">
+                    <div class="flex-center-center mb-3 p-3 rounded-16 side-menu__item">
+                        <i [ngClass]="item.icon" class="mx-2"></i>
+
+                        <p class="mb-0">{{item.title}}</p>
+                    </div>
+                </a>
+            </ng-container>
+        </div>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <button class="btn border-0 position-fixed" (click)="isOpened = !isOpened"><i class="bi bi-list"></i></button>
+    </mat-sidenav-content>
+</mat-sidenav-container>

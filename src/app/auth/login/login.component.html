@@ -1,0 +1,62 @@
+<div class="login__container bg-light-blue h-100">
+    <div class="d-flex col-10 bg-white login__container--card align-items-center">
+        <div class="col-12 col-lg-7 px-lg-5 px-3 py-3">
+
+            <h3 class="font-size-lg-22 font-size-16 font-weight-600 mb-3">
+                {{'AUTH.LOGIN.TITLE' | translate}}
+            </h3>
+
+            <form #loginForm="ngForm" class="border-bottom pb-3">
+                <div class="mb-3">
+                    <input type="email" class="form-control bg-light-blue" id="email" name="email"
+                        [placeholder]="'AUTH.LOGIN.EMAIL' | translate" [(ngModel)]="user.email"
+                        [ngClass]="{'border-danger' : (loginForm.submitted && email.invalid)}" required
+                        #email="ngModel" [pattern]="emailPattern">
+
+                    <ng-container *ngIf="(loginForm.submitted && email.invalid)">
+
+                        <span class="text-danger" *ngIf="email.errors?.['required']">
+                            {{'AUTH.VALIDATION.REQUIRED' | translate: {name: ('AUTH.LOGIN.EMAIL' | translate)} }}
+                        </span>
+                        <span class="text-danger" *ngIf="email.errors?.['pattern']">
+                            {{'AUTH.VALIDATION.INVALID' | translate: {name: ('AUTH.LOGIN.EMAIL' | translate)} }}
+                        </span>
+                    </ng-container>
+                </div>
+                <div class="mb-3 ">
+                    <div class="position-relative">
+                        <input [type]="showPassowrd ? 'text' : 'password'" class="form-control bg-light-blue" id="password" name="password"
+                            [placeholder]="'AUTH.LOGIN.PASSWORD' | translate" [(ngModel)]="user.password"
+                            [ngClass]="{'border-danger' : (loginForm.submitted && password.invalid)}" required
+                            #password="ngModel">
+    
+                        <button class="btn text-dark switch-password" type="button" (click)="switchPassword()">
+                            {{showPassowrd ? ('AUTH.LOGIN.HIDE' | translate) : ('AUTH.LOGIN.SHOW' | translate)}}
+                        </button>
+                    </div>
+
+                    <ng-container *ngIf="(loginForm.submitted && password.invalid)">
+
+                        <span class="text-danger" *ngIf="password.errors?.['required']">
+                            {{'AUTH.VALIDATION.REQUIRED' | translate: {name: ('AUTH.LOGIN.PASSWORD' | translate)} }}
+                        </span>
+                    </ng-container>
+                </div>
+                <button class="btn text-primary d-block px-0 my-3 font-size-14" type="button">
+                    {{'AUTH.LOGIN.FORGET_PASSWORD' | translate}}
+                </button>
+                <button class="btn btn-primary" type="submit" (click)="submit(loginForm)">
+                    {{'AUTH.LOGIN.SIGN_IN' | translate}}
+                </button>
+            </form>
+
+            <img src="assets/images/logo/logo.png" class="logo mt-2">
+        </div>
+
+
+
+        <div class="col-5 d-none d-lg-inline">
+            <img src="assets/images/bg/login.png" class="w-100 fit-cover" alt="login-bg">
+        </div>
+    </div>
+</div>

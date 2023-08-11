@@ -1,0 +1,25 @@
+@mixin button-bg($bg) {
+    background: $bg;
+    border-color: $bg;
+    &:hover {
+      background:darken($bg,8%);
+      transition: all 0.3s ease;
+    }
+    &:active {
+      background:darken($bg,25%);
+    } 
+  }
+  
+@mixin button-outline($color) {
+    background: transparent;
+    border: 1px solid $color;
+    color: $color;
+    &:hover {
+      background:darken($color,8%);
+      transition: all 0.3s ease;
+    }
+    &:active {
+      background:darken($color,25%);
+    } 
+  }
+  
